@@ -7,7 +7,7 @@ import com.capital.user.manager.mapper.CustomPermission;
 public class User {
 
 
-    //private String permissionName;
+    private String permissionName;
     private String userRoleName;
     private int createdBy;
     private int lastUpdatedBy;
@@ -23,7 +23,8 @@ public class User {
     public User() {
     }
 
-    public User(String userRoleName, int createdBy, int lastUpdatedBy, byte isActive, CustomPermission customPermission, String email, String phone, String address, String pinCode, String userTypeName) {
+    public User(String permissionName, String userRoleName, int createdBy, int lastUpdatedBy, byte isActive, CustomPermission customPermission, String email, String phone, String address, String pinCode, String userTypeName) {
+        this.permissionName = permissionName;
         this.userRoleName = userRoleName;
         this.createdBy = createdBy;
         this.lastUpdatedBy = lastUpdatedBy;
@@ -34,6 +35,14 @@ public class User {
         this.address = address;
         this.pinCode = pinCode;
         this.userTypeName = userTypeName;
+    }
+
+    public String getPermissionName() {
+        return permissionName;
+    }
+
+    public void setPermissionName(String permissionName) {
+        this.permissionName = permissionName;
     }
 
     public String getUserRoleName() {
@@ -119,7 +128,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "userRoleName='" + userRoleName + '\'' +
+                "permissionName='" + permissionName + '\'' +
+                ", userRoleName='" + userRoleName + '\'' +
                 ", createdBy=" + createdBy +
                 ", lastUpdatedBy=" + lastUpdatedBy +
                 ", isActive=" + isActive +
