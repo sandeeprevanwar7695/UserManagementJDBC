@@ -4,16 +4,17 @@ import javax.persistence.Entity;
 
 public class CustomPermission {
     boolean create;
+    boolean read;
     boolean insert;
     boolean update;
+    boolean delete;
 
     public CustomPermission() {
-    }
-
-    public CustomPermission(boolean create, boolean insert, boolean update) {
-        this.create = create;
-        this.insert = insert;
-        this.update = update;
+        this.create = false;
+        this.read = false;
+        this.insert = false;
+        this.update = false;
+        this.delete = false;
     }
 
     public boolean isCreate() {
@@ -22,6 +23,14 @@ public class CustomPermission {
 
     public void setCreate(boolean create) {
         this.create = create;
+    }
+
+    public boolean isRead() {
+        return read;
+    }
+
+    public void setRead(boolean read) {
+        this.read = read;
     }
 
     public boolean isInsert() {
@@ -40,12 +49,22 @@ public class CustomPermission {
         this.update = update;
     }
 
+    public boolean isDelete() {
+        return delete;
+    }
+
+    public void setDelete(boolean delete) {
+        this.delete = delete;
+    }
+
     @Override
     public String toString() {
         return "{" +
                 "\"create\":" +'\"'+ create +'\"'+","+
+                "\"read\":" +'\"'+ read +'\"'+","+
                 "\"insert\":" +'\"'+ insert +'\"'+","+
-                "\"update\":" +'\"'+ update +'\"'+
+                "\"update\":" +'\"'+ update +'\"'+","+
+                "\"delete\":" +'\"'+ delete +'\"'+
                 "}";
     }
 

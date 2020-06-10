@@ -38,16 +38,14 @@ public class UserManagementController {
     @PostMapping("/add")
     public ResponseEntity<User> createUser(@RequestBody User user) throws ApiException{
 
-
-       // Timestamp timestamp = Timestamp.valueOf(user1);
-
-
       User updated = userManagerService.createUser(user);
         return new ResponseEntity<>(updated,new HttpHeaders(), HttpStatus.OK);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<User> updateUSer(User user) throws ApiException{
+    @PutMapping("/update")
+    public ResponseEntity<User> updateUSer(@RequestBody User user) throws ApiException{
+        System.err.println("i am here " + user);
+
         User updated = userManagerService.updateUser(user);
         return new ResponseEntity<>(updated,new HttpHeaders(), HttpStatus.OK);
     }
@@ -55,12 +53,12 @@ public class UserManagementController {
     @DeleteMapping("delete/{id}")
     public HttpStatus deleteUserById(@PathVariable("id") Long id) throws  ApiException{
         userManagerService.deleteUserById(id);
-        return HttpStatus.FORBIDDEN;
+        return HttpStatus.OK;
     }
 
     @DeleteMapping("/delete/all")
     public HttpStatus deleteAll() throws ApiException{
         userManagerService.deleteAll();
-        return HttpStatus.FORBIDDEN;
+        return HttpStatus.OK;
     }
 }

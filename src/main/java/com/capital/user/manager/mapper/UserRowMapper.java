@@ -1,23 +1,12 @@
 package com.capital.user.manager.mapper;
 
 import com.capital.user.manager.model.User;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import net.minidev.json.JSONValue;
 import org.springframework.jdbc.core.RowMapper;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
 
 public class UserRowMapper implements RowMapper<User> {
     @Override
@@ -46,7 +35,5 @@ public class UserRowMapper implements RowMapper<User> {
 
         return user;
     }
-
-
 
 }
